@@ -27,8 +27,10 @@ jobs:
           pip install -r backend/requirements.txt
 
       - name: Run WCAG 2.2 Rule Evaluator & API Tests (25 Tests)
+        env:
+          PYTHONPATH: backend
         run: |
-          python -m pytest -v
+          python -m pytest backend/tests -v
 
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
@@ -40,5 +42,5 @@ jobs:
       - name: Install Frontend Dependencies & Build
         run: |
           cd frontend
-          npm ci
+          npm install
           npm run build
