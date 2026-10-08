@@ -28,8 +28,7 @@ jobs:
 
       - name: Run WCAG 2.2 Rule Evaluator & API Tests (25 Tests)
         run: |
-          cd backend
-          python -m pytest tests -v
+          python -m pytest -v
 
       - name: Set up Node.js 20
         uses: actions/setup-node@v4
