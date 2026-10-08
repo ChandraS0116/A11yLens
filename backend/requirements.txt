@@ -6,3 +6,4 @@ pydantic>=2.5.2
 selenium>=4.15.0
 webdriver-manager>=4.0.0
 pytest>=7.4.0
+httpx>=0.25.0
