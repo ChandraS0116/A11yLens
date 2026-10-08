@@ -1,4 +1,4 @@
-name: "A11yLens Automated Accessibility Gate"
+name: "A11yLens CI - Automated Accessibility Engine Tests"
 
 on:
   push:
@@ -7,33 +7,38 @@ on:
     branches: [ "main" ]
 
 jobs:
-  accessibility-audit:
-    name: "WCAG 2.2 Compliance & SARIF Scan"
+  test-and-verify:
+    name: "WCAG 2.2 Compliance & Build Verification"
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
 
     steps:
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Set up Python 3.11
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
           cache: "pip"
+          cache-dependency-path: backend/requirements.txt
 
-      - name: Install Audit Engine Dependencies
+      - name: Install Backend Dependencies
         run: |
           pip install -r backend/requirements.txt
 
-      - name: Run A11yLens Audit Engine & Export SARIF
+      - name: Run WCAG 2.2 Rule Evaluator & API Tests (25 Tests)
         run: |
-          python backend/cli.py https://example.com --format sarif --output a11ylens-report.sarif --min-score 80
+          python -m pytest backend/tests -v
 
-      - name: Upload Results to GitHub Security (Code Scanning)
-        uses: github/codeql-action/upload-sarif@v3
-        if: always()
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
         with:
-          sarif_file: a11ylens-report.sarif
+          node-version: 20
+          cache: "npm"
+          cache-dependency-path: frontend/package-lock.json
+
+      - name: Install Frontend Dependencies & Build
+        run: |
+          cd frontend
+          npm ci
+          npm run build
