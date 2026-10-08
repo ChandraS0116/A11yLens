@@ -30,12 +30,6 @@ jobs:
         env:
           PYTHONPATH: backend
         run: |
-          python -m pytest backend/tests -v > test_output.log 2>&1 || true
-          cat test_output.log
-          echo "### Test Output Log" >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
-          cat test_output.log >> $GITHUB_STEP_SUMMARY
-          echo '```' >> $GITHUB_STEP_SUMMARY
           python -m pytest backend/tests -v
 
       - name: Set up Node.js 20
