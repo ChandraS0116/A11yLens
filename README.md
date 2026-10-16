@@ -13,7 +13,7 @@
 
 *Audit live web applications against W3C guidelines, evaluate client-side SPAs via Headless Chromium, calculate POUR principle compliance radar scores, simulate color blindness, synthesize 1-click code patches, and enforce CI/CD accessibility gates.*
 
-[Key Features](#-key-features) • [POUR Compliance Matrix](#-pour-compliance-matrix) • [Architecture](#-architecture) • [Getting Started](#-getting-started) • [CI/CD & SARIF Integration](#-cicd--sarif-integration) • [API Reference](#-api-reference)
+[Key Features](#-key-features) • [POUR Compliance Matrix](#-pour-compliance-matrix) • [Architecture](#-architecture) • [Getting Started](#-getting-started) • [CI/CD & SARIF Integration](#-cicd--sarif-integration) • [API Reference](#-api-reference) • [License & Author](#-license--author)
 
 </div>
 
@@ -236,6 +236,14 @@ jobs:
 
 ---
 
-## 📄 License
+## 📄 License & Author
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+### 👨‍💻 Creator & Lead Developer
+
+**Sri Chandra Pappu**  
+*Creator & Lead Developer — A11yLens Web Accessibility Intelligence Platform*  
+
+[![LinkedIn Profile](https://img.shields.io/badge/LinkedIn-Sri%20Chandra%20Pappu-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/chandrapappu1609)  
+🔗 **[LinkedIn Profile: linkedin.com/in/chandrapappu1609](https://www.linkedin.com/in/chandrapappu1609)**
